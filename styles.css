@@ -220,3 +220,6 @@ tbody tr:not(.example-row) td:nth-child(6){grid-area:btn;justify-self:end}
 .example-box{padding:4px 18px 8px}
 .example-item p{overflow-wrap:anywhere}
 }
+
+/* Impede que palavras com 3+ caracteres quebrem em duas linhas */
+.hanzi-cell{white-space:nowrap}
