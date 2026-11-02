@@ -30,6 +30,10 @@
     <main id="conteudo">
 <section class="sentence-section shell" id="frases">
         <div class="section-heading"><h1>Frases de exemplo</h1><p>900 frases para praticar em contexto. Escolha um tema para filtrar.</p></div>
+        <div class="filters" style="grid-template-columns:1fr" aria-label="Filtros das frases">
+          <label class="search-label"><span>Buscar</span><input id="sentence-search" type="search" placeholder="Ex.: 学, xue ou estudar" autocomplete="off" /></label>
+        </div>
+        <p class="table-count" id="sentence-count"></p>
         <div class="topic-tabs" id="topic-tabs" aria-label="Filtrar frases por tema"></div>
         <div class="sentences-grid" id="sentences-grid"></div>
       </section>

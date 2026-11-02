@@ -29,10 +29,18 @@
     return pieces.map((piece) => `<span class="py-t${toneOf(piece)}">${escape(piece)}</span>`).join("");
   }).join("");
   const normalize = (value) => String(value).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  const compact = (value) => normalize(value).replace(/[^\p{L}\p{N}]/gu, "");
+  // Aceita pinyin sem espaço: compara também com espaços/apóstrofos/hífens removidos, campo a campo.
+  const matchesQuery = (fields, q) => {
+    if (!q) return true;
+    if (normalize(fields.join(" ")).includes(q)) return true;
+    const cq = compact(q);
+    return cq !== "" && fields.some((f) => compact(f).includes(cq));
+  };
   const saved = JSON.parse(localStorage.getItem("hanzi-hsk-progress") || "{}");
   const renderVocab = () => {
     const query = normalize($("#vocab-search").value); const pos = $("#pos-filter").value;
-    let rows = vocabulary.filter((x) => (!query || normalize(`${x.hanzi} ${x.pinyin} ${x.meaning}`).includes(query)) && (pos === "all" || normalize(x.pos).includes(pos)));
+    let rows = vocabulary.filter((x) => matchesQuery([x.hanzi, x.pinyin, x.meaning], query) && (pos === "all" || normalize(x.pos).includes(pos)));
     if ($("#order-filter").value === "random") rows = [...rows].sort(() => Math.random() - .5);
     if ($("#order-filter").value === "unlearned") rows = rows.filter((x) => !saved[x.id]);
     $("#vocab-body").innerHTML = rows.map((x) => `<tr><td>${x.id}</td><td class="hanzi-cell" lang="zh-Hans">${escape(x.hanzi)}</td><td class="pinyin">${colorPinyin(x.pinyin)}</td><td>${escape(x.meaning)}</td><td>${escape(x.pos)}</td><td><button class="examples-button" type="button" data-examples="${x.id}" aria-expanded="false" aria-controls="examples-${x.id}">Exemplos</button></td></tr><tr class="example-row" id="examples-${x.id}" hidden><td colspan="6"><div class="example-box">${x.examples.map((e) => `<div class="example-item"><p class="hanzi-example" lang="zh-Hans">${escape(e.hanzi)}</p><p class="pinyin-example">${escape(e.pinyin)}</p><p class="pt-example"><em>${escape(e.translation)}</em></p></div>`).join("")}</div></td></tr>`).join("");
