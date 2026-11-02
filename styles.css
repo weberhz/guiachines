@@ -205,17 +205,18 @@ html,body,button,a,select,input,label{touch-action:manipulation;-webkit-tap-high
 table{min-width:0;display:block}
 thead{display:none}
 tbody{display:block}
-tbody tr:not(.example-row){display:grid;grid-template-columns:26px auto minmax(0,1fr);grid-template-areas:"id hanzi pinyin" "meaning meaning meaning" "pos pos btn";column-gap:14px;row-gap:6px;align-items:center;padding:14px 16px 12px;border-bottom:1px solid var(--line)}
+tbody tr:not(.example-row){display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-areas:"hanzi pinyin id" "meaning meaning meaning" "pos pos btn";column-gap:12px;row-gap:0;align-items:center;padding:16px 18px;border-bottom:1px solid var(--line)}
 tbody tr:not(.example-row) td{display:block;padding:0;border:0;background:transparent}
 tbody tr:hover td{background:transparent}
-tbody tr:not(.example-row) td:nth-child(1){grid-area:id;font-size:12px;color:var(--muted);min-width:22px}
-tbody tr:not(.example-row) td:nth-child(2){grid-area:hanzi}
-tbody tr:not(.example-row) td:nth-child(3){grid-area:pinyin;min-width:0;overflow-wrap:anywhere}
-tbody tr:not(.example-row) td:nth-child(4){grid-area:meaning;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
-tbody tr:not(.example-row) td:nth-child(5){grid-area:pos;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+tbody tr:not(.example-row) td:nth-child(1){grid-area:id;justify-self:end;align-self:baseline;font-size:12px;color:#a09a95;font-variant-numeric:tabular-nums}
+tbody tr:not(.example-row) td:nth-child(1):before{content:"#"}
+tbody tr:not(.example-row) td:nth-child(2){grid-area:hanzi;align-self:baseline;font-size:28px;line-height:1.2}
+tbody tr:not(.example-row) td:nth-child(3){grid-area:pinyin;align-self:baseline;min-width:0;overflow-wrap:anywhere}
+tbody tr:not(.example-row) td:nth-child(4){grid-area:meaning;margin:8px 0 14px;font-size:15px;line-height:1.45;color:#4a4540;overflow-wrap:anywhere}
+tbody tr:not(.example-row) td:nth-child(5){grid-area:pos;justify-self:start;padding:4px 10px;border-radius:100px;background:var(--paper-deep);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
 tbody tr:not(.example-row) td:nth-child(6){grid-area:btn;justify-self:end}
 .example-row{display:block}
 .example-row td{display:block;padding:0;border-bottom:1px solid var(--line)}
-.example-box{padding:4px 16px 8px}
+.example-box{padding:4px 18px 8px}
 .example-item p{overflow-wrap:anywhere}
 }
