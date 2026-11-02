@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Jogo de escuta de pinyin: reconheça inicial, final, tom e sílabas em mandarim." />
+    <title>Jogo de Escuta de Pinyin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pinyin-tools.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topbar">
+      <div class="topbar__inside shell">
+        <nav class="nav nav--tools" id="primary-nav" aria-label="Navegação principal">
+          <a href="index.html">HSK 1</a>
+          <a href="pinyin-chart.html">Tabela de pinyin</a>
+          <a href="pinyin-game.html" aria-current="page">Jogo de escuta</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="tools-hero tools-hero--game">
+        <div class="shell tools-hero__inner">
+          <p class="eyebrow">TREINO DE ESCUTA · PINYIN</p>
+          <h1>Ouça primeiro. <em>Acerte</em> depois.</h1>
+          <p>Treine o ouvido antes de ver a resposta. Escolha um modo, escute quantas vezes quiser e receba correção imediata.</p>
+        </div>
+      </section>
+
+      <section class="tools-section shell game-section">
+        <div class="section-heading game-heading"><p class="eyebrow">ESCOLHA O DESAFIO</p><h2>Cinco formas de praticar</h2><p>Cada questão usa uma das gravações da tabela de pinyin.</p></div>
+        <div class="mode-grid" id="mode-grid" aria-label="Modos de jogo">
+          <button class="mode-card is-active" data-mode="initial" type="button"><b>1</b><span><strong>Reconheça a inicial</strong><small>Ouça e escolha o som inicial.</small></span></button>
+          <button class="mode-card" data-mode="final" type="button"><b>2</b><span><strong>Reconheça a final</strong><small>Ouça e escolha a terminação.</small></span></button>
+          <button class="mode-card" data-mode="tone" type="button"><b>3</b><span><strong>Reconheça o tom</strong><small>Escolha entre os quatro tons da mesma sílaba.</small></span></button>
+          <button class="mode-card" data-mode="write" type="button"><b>4</b><span><strong>Escreva a sílaba</strong><small>Digite inicial + final, sem o tom.</small></span></button>
+          <button class="mode-card" data-mode="write-tone" type="button"><b>5</b><span><strong>Escreva e marque o tom</strong><small>Digite a sílaba e selecione seu tom.</small></span></button>
+        </div>
+
+        <section class="game-card" aria-labelledby="game-title">
+          <div class="game-card__top"><span class="game-badge" id="game-badge">Modo 1 · inicial</span><span class="game-score" id="game-score" aria-live="polite">0 acertos de 0</span></div>
+          <h2 id="game-title">Qual é a inicial?</h2>
+          <p class="game-instruction" id="game-instruction">Ouça a gravação e escolha a inicial correta.</p>
+          <button class="listen-button" id="listen-button" type="button" aria-label="Ouvir gravação"><span aria-hidden="true">▶</span><span>Ouvir áudio</span><small>ouvir novamente</small></button>
+          <div id="game-area"></div>
+          <div class="game-feedback" id="game-feedback" aria-live="polite"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer><div class="shell footer-inner"><p>Ferramentas de pronúncia para mandarim<br />Feitas para estudo independente.</p><a href="#conteudo">Voltar ao topo ↑</a></div></footer>
+    <script src="pinyin-data.js"></script>
+    <script src="pinyin-game.js"></script>
+  </body>
+</html>

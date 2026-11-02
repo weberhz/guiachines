@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tabela completa de pinyin com áudios para cada sílaba e tom." />
+    <title>Tabela de Pinyin com Áudio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="pinyin-tools.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topbar">
+      <div class="topbar__inside shell">
+        <nav class="nav nav--tools" id="primary-nav" aria-label="Navegação principal">
+          <a href="index.html">HSK 1</a>
+          <a href="pinyin-chart.html" aria-current="page">Tabela de pinyin</a>
+          <a href="pinyin-game.html">Jogo de escuta</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+      <section class="tools-hero tools-hero--chart">
+        <div class="shell tools-hero__inner">
+          <p class="eyebrow">PRONÚNCIA · PINYIN</p>
+          <h1>A tabela que deixa você <em>ouvir</em> os tons</h1>
+          <p>Explore as sílabas de pinyin e toque em qualquer forma tonal para escutar a pronúncia. As cores ajudam a separar os quatro tons e o tom neutro.</p>
+          <div class="tools-stats" aria-label="Estatísticas da tabela">
+            <div><strong id="base-count">—</strong><span>sílabas-base</span></div>
+            <div><strong id="sound-count">—</strong><span>gravações disponíveis</span></div>
+            <div><strong>5</strong><span>tons no pinyin</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tools-section shell">
+        <div class="tools-intro">
+          <span class="tools-intro__icon" aria-hidden="true">♪</span>
+          <div><h2>Como usar a tabela</h2><p>Cada linha une uma inicial e uma final. Clique em uma sílaba colorida para escutá-la. Quando houver uma gravação do tom neutro, ela também aparece na última coluna.</p></div>
+        </div>
+
+        <div class="chart-controls" aria-label="Filtros da tabela de pinyin">
+          <label class="chart-search"><span>Encontrar sílaba</span><input id="chart-search" type="search" placeholder="Ex.: shi, lü ou xue" autocomplete="off" /></label>
+          <div><span class="control-label">Filtrar por inicial</span><div class="initial-filter" id="initial-filter" aria-label="Iniciais do pinyin"></div></div>
+        </div>
+
+        <div class="now-playing" id="now-playing" aria-live="polite">
+          <span class="now-playing__sound" aria-hidden="true">♪</span><span><b>Pronto para ouvir</b><small>Escolha uma sílaba na tabela.</small></span>
+        </div>
+
+        <p class="chart-result" id="chart-result" aria-live="polite"></p>
+        <div class="pinyin-table-wrap">
+          <table class="pinyin-table">
+            <thead><tr><th scope="col">Inicial</th><th scope="col">Final</th><th scope="col">1º tom</th><th scope="col">2º tom</th><th scope="col">3º tom</th><th scope="col">4º tom</th><th scope="col">Neutro</th></tr></thead>
+            <tbody id="chart-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer><div class="shell footer-inner"><p>Ferramentas de pronúncia para mandarim<br />Feitas para estudo independente.</p><a href="#conteudo">Voltar ao topo ↑</a></div></footer>
+    <script src="pinyin-data.js"></script>
+    <script src="pinyin-chart.js"></script>
+  </body>
+</html>

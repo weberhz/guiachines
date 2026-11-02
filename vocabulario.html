@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A lista completa, com busca, filtros, pinyin colorido por tom e frases de exemplo." />
+    <title>Lista de palavras | HSK 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topbar">
+      <div class="topbar__inside shell">
+        <nav class="nav" id="primary-nav" aria-label="Navegação principal">
+          <a href="index.html">Início</a>
+          <a href="cartoes.html">Cartões</a>
+          <a href="vocabulario.html" aria-current="page">Vocabulário</a>
+          <a href="gramatica.html">Gramática</a>
+          <a href="frases.html">Frases</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+<section class="vocab-section shell" id="lista">
+        <div class="section-heading">
+          <h1>Lista de palavras</h1>
+          <p>Busque por caractere, pinyin (com ou sem tom) ou português. Abra os exemplos para ver a palavra em contexto.</p>
+        </div>
+        <div class="filters" aria-label="Filtros da lista de vocabulário">
+          <label class="search-label"><span>Buscar</span><input id="vocab-search" type="search" placeholder="Ex.: 学, xue ou estudar" autocomplete="off" /></label>
+          <label><span>Classe</span><select id="pos-filter"><option value="all">Todas</option><option value="substantivo">Substantivos</option><option value="verbo">Verbos</option><option value="adjetivo">Adjetivos</option><option value="advérbio">Advérbios</option><option value="numeral">Numerais</option><option value="pronome">Pronomes</option><option value="partícula">Partículas</option><option value="classificador">Classificadores</option></select></label>
+          <label><span>Ordem</span><select id="order-filter"><option value="official">Lista oficial</option><option value="random">Aleatória</option><option value="unlearned">Ainda não sei</option></select></label>
+          <label class="tone-toggle"><input id="tone-toggle" type="checkbox" role="switch" checked /><span>Cores dos tons</span><span class="tone-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span></label>
+        </div>
+        <div class="table-wrap"><table>
+          <thead><tr><th>Nº</th><th>Chinês</th><th>Pinyin</th><th>Português</th><th>Classe</th><th>Exemplos</th></tr></thead>
+          <tbody id="vocab-body"></tbody>
+        </table></div>
+        <p class="table-count" id="table-count"></p>
+      </section>
+    </main>
+    <footer><div class="shell footer-inner"><p>Vocabulário HSK 1 em português do Brasil.</p><a href="#conteudo">Voltar ao topo ↑</a></div></footer>
+    <script src="data.js"></script>
+    <script src="vocabulario.js"></script>
+  </body>
+</html>

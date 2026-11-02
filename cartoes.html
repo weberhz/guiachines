@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Revise as 300 palavras com cartões que viram e três modos de estudo." />
+    <title>Cartões de estudo | HSK 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topbar">
+      <div class="topbar__inside shell">
+        <nav class="nav" id="primary-nav" aria-label="Navegação principal">
+          <a href="index.html">Início</a>
+          <a href="cartoes.html" aria-current="page">Cartões</a>
+          <a href="vocabulario.html">Vocabulário</a>
+          <a href="gramatica.html">Gramática</a>
+          <a href="frases.html">Frases</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+<section class="study-section" id="cartoes">
+        <div class="shell">
+          <div class="section-heading">
+            <h1>Cartões de estudo</h1>
+            <p>Clique no cartão para virar. Use os botões <kbd>←</kbd> <kbd>→</kbd> na tela para trocar de palavra.</p>
+          </div>
+          <div class="flash-settings" aria-label="Configurações dos cartões">
+            <label>Modo
+              <select id="card-mode"><option value="hanzi">Chinês → português</option><option value="hanzi-pinyin" selected>Chinês + pinyin → português</option><option value="meaning">Português → chinês</option></select>
+            </label>
+            <label>Palavras
+              <select id="deck-filter"><option value="all">Todas as palavras</option><option value="again">Rever</option><option value="learning">Aprendendo</option><option value="review">Rever + Aprendendo</option><option value="unmarked">Ainda não marcadas</option><option value="know">Já sei</option></select>
+            </label>
+            <label>Quantidade de palavras<input id="study-count" type="number" min="1" max="300" step="1" value="20" inputmode="numeric" /></label>
+            <button class="outline-button" id="study-words" type="button">Estudar essa quantidade</button>
+          </div>
+          <div class="deck-label" id="deck-label">Todas as 300 palavras</div>
+          <p class="deck-note" id="deck-note" aria-live="polite"></p>
+          <button class="flashcard" id="flashcard" type="button" aria-label="Virar cartão">
+            <span class="card-side card-front"><small id="card-front-label">Chinês</small><span id="card-front-pinyin"></span><strong id="card-hanzi" lang="zh-Hans"></strong><i>Clique para virar</i></span>
+            <span class="card-side card-back"><small id="card-back-label">Português</small><strong id="card-meaning"></strong><span id="card-pinyin"></span><i>Clique para voltar</i></span>
+          </button>
+          <div class="card-context" id="card-context"></div>
+          <div class="card-controls">
+            <button class="icon-button" id="prev-card" type="button" aria-label="Palavra anterior">←</button>
+            <span id="card-count" aria-live="polite">1 / 300</span>
+            <button class="icon-button" id="next-card" type="button" aria-label="Próxima palavra">→</button>
+          </div>
+          <div class="rating-area">
+            <span>Você sabe esta palavra?</span>
+            <div><button type="button" class="rate-again" data-rating="again">Rever</button><button type="button" class="rate-learning" data-rating="learning">Aprendendo</button><button type="button" class="rate-know" data-rating="know">Já sei</button></div>
+          </div>
+          <p class="progress-copy" id="progress-copy" aria-live="polite"></p>
+          <div class="deck-actions">
+            <button class="text-button" id="shuffle-deck" type="button">Embaralhar</button><button class="text-button" id="all-deck" type="button">Todas as palavras</button><button class="text-button" id="download-csv" type="button">Baixar CSV</button><button class="text-button danger" id="clear-progress" type="button">Limpar progresso</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer><div class="shell footer-inner"><p>Vocabulário HSK 1 em português do Brasil.</p><a href="#conteudo">Voltar ao topo ↑</a></div></footer>
+    <script src="data.js"></script>
+    <script src="cartoes.js"></script>
+  </body>
+</html>
