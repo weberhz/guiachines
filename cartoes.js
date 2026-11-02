@@ -29,6 +29,20 @@
   const refreshFilterOptions = () => [...$("#deck-filter").options].forEach((option) => { option.textContent = option.value === "all" ? FILTERS.all : `${FILTERS[option.value]} (${pool(option.value).length})`; });
   const setDeck = (key, items, isSampled) => { filter = key; deck = items; cardIndex = 0; sampled = isSampled; flipped = false; showExamples = false; $("#deck-filter").value = key; renderCard(); };
   const card = $("#flashcard");
+  // Reduz a fonte do texto principal até caber dentro do cartão (definições longas).
+  const fitCard = () => {
+    document.querySelectorAll(".card-side").forEach((side) => {
+      const text = side.querySelector("strong"); if (!text) return;
+      text.style.fontSize = "";
+      const cs = getComputedStyle(side);
+      const avail = side.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      const used = () => [...side.children].reduce((sum, el) => { const st = getComputedStyle(el); return st.display === "none" ? sum : sum + el.offsetHeight + parseFloat(st.marginTop) + parseFloat(st.marginBottom); }, 0);
+      let size = parseFloat(getComputedStyle(text).fontSize);
+      while (used() > avail && size > 13) { size -= 1; text.style.fontSize = size + "px"; }
+    });
+  };
+  window.addEventListener("resize", fitCard);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitCard);
   const renderCard = () => {
     const item = deck[cardIndex]; if (!item) return;
     const mode = $("#card-mode").value; const reverse = mode === "meaning"; const withPinyin = mode === "hanzi-pinyin";
@@ -47,7 +61,8 @@
     const count = (key) => Object.values(saved).filter((value) => value === key).length;
     $("#progress-copy").textContent = `${Object.keys(saved).length} de ${vocabulary.length} palavras marcadas · ${count("again")} para rever · ${count("learning")} aprendendo · ${count("know")} já sei`;
     refreshFilterOptions();
-      };
+    fitCard();
+  };
   const move = (step) => { cardIndex = (cardIndex + step + deck.length) % deck.length; flipped = false; showExamples = false; renderCard(); };
   card.addEventListener("click", () => { flipped = !flipped; renderCard(); });
   $("#card-context").addEventListener("click", (event) => { if (event.target.closest("#toggle-examples")) { showExamples = !showExamples; renderCard(); } });

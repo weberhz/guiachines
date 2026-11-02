@@ -74,7 +74,7 @@ select:focus,input[type="search"]:focus,input[type="number"]:focus,input[type="t
 .flashcard.is-flipped .card-back{transform:rotateY(360deg)}
 .card-side small{font-size:10px;letter-spacing:.2em;font-weight:600;text-transform:uppercase;opacity:.6;margin-bottom:14px}
 .card-side strong{font-family:var(--chinese);font-size:68px;font-weight:500;line-height:1.1}
-.card-back strong{font-family:var(--sans);font-size:30px;font-weight:650;letter-spacing:-.02em;text-align:center}
+.card-side strong{max-width:100%;text-align:center;overflow-wrap:anywhere;hyphens:auto}.card-back strong{font-family:var(--sans);font-size:30px;font-weight:650;letter-spacing:-.02em;text-align:center;line-height:1.2}
 .card-side span{font-size:20px;color:var(--red);margin-top:8px;font-weight:500}
 .card-side i{font-style:normal;font-size:12px;opacity:.5;margin-top:22px}
 .card-front span{color:#ff9d8f;margin:0 0 4px}.card-side span:empty{display:none}
@@ -191,6 +191,6 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 .section-heading h2{font-size:28px}
 .filters{grid-template-columns:1fr 1fr;padding:14px;gap:12px}.filters .search-label,.filters .tone-toggle{grid-column:1/-1}.filters .tone-toggle{justify-content:flex-start}
 .gv-item summary{padding:18px 44px 18px 2px}.gv-item-title{font-size:17px}.gv-pattern strong{font-size:19px}.gv-examples{grid-template-columns:1fr}.gv-pattern.is-multi strong.has-label{flex-direction:column;gap:3px}.gv-pattern strong small{flex:none}
-.flashcard{height:230px}.card-side strong{font-size:54px}
+.flashcard{height:250px}.card-side{padding:22px 18px}.card-front strong{font-size:54px}.card-back strong{font-size:26px}
 .footer-inner{flex-direction:column;align-items:center;text-align:center}
 .home-menu{grid-template-columns:1fr;padding-bottom:64px}.home-card{min-height:150px}.home-card__mark{font-size:72px;right:16px}.home-card h2,.home-card p{padding-right:72px}}
