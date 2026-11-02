@@ -194,3 +194,28 @@ footer{border-top:1px solid var(--line);padding:36px 0}
 .flashcard{height:250px}.card-side{padding:22px 18px}.card-front strong{font-size:54px}.card-back strong{font-size:26px}
 .footer-inner{flex-direction:column;align-items:center;text-align:center}
 .home-menu{grid-template-columns:1fr;padding-bottom:64px}.home-card{min-height:150px}.home-card__mark{font-size:72px;right:16px}.home-card h2,.home-card p{padding-right:72px}}
+
+/* Evita zoom por toque duplo ao tocar rápido nos botões (o zoom com pinça continua funcionando) */
+html,body,button,a,select,input,label{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.flashcard,.card-controls,.rating-area,.deck-actions{-webkit-user-select:none;user-select:none}
+
+/* Lista de palavras no celular: cada linha vira um cartão, sem scroll lateral */
+@media(max-width:800px){
+.table-wrap{max-height:none;overflow:hidden}
+table{min-width:0;display:block}
+thead{display:none}
+tbody{display:block}
+tbody tr:not(.example-row){display:grid;grid-template-columns:26px auto minmax(0,1fr);grid-template-areas:"id hanzi pinyin" "meaning meaning meaning" "pos pos btn";column-gap:14px;row-gap:6px;align-items:center;padding:14px 16px 12px;border-bottom:1px solid var(--line)}
+tbody tr:not(.example-row) td{display:block;padding:0;border:0;background:transparent}
+tbody tr:hover td{background:transparent}
+tbody tr:not(.example-row) td:nth-child(1){grid-area:id;font-size:12px;color:var(--muted);min-width:22px}
+tbody tr:not(.example-row) td:nth-child(2){grid-area:hanzi}
+tbody tr:not(.example-row) td:nth-child(3){grid-area:pinyin;min-width:0;overflow-wrap:anywhere}
+tbody tr:not(.example-row) td:nth-child(4){grid-area:meaning;font-size:15px;line-height:1.4;overflow-wrap:anywhere}
+tbody tr:not(.example-row) td:nth-child(5){grid-area:pos;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+tbody tr:not(.example-row) td:nth-child(6){grid-area:btn;justify-self:end}
+.example-row{display:block}
+.example-row td{display:block;padding:0;border-bottom:1px solid var(--line)}
+.example-box{padding:4px 16px 8px}
+.example-item p{overflow-wrap:anywhere}
+}
