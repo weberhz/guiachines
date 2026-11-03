@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Os textos do livro HSK 1, por lição, com cena, pinyin, tradução para o português e palavras novas." />
+    <title>Textos do livro | HSK 1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="alternate icon" href="favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topbar">
+      <div class="topbar__inside shell">
+        <nav class="nav" id="primary-nav" aria-label="Navegação principal">
+          <a href="index.html">Início</a>
+          <a href="cartoes.html">Cartões</a>
+          <a href="vocabulario.html">Vocabulário</a>
+          <a href="gramatica.html">Gramática</a>
+          <a href="frases.html">Frases</a>
+          <a href="textos.html" aria-current="page">Textos</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="conteudo">
+<section class="texts-section shell hide-translation" id="textos">
+        <div class="section-heading">
+          <h1>Textos do livro</h1>
+          <p>Os textos de cada lição do livro <i>New HSK Course 1</i>.</p>
+        </div>
+        <div class="texts-controls">
+          <div class="text-toggles" aria-label="Opções de exibição">
+            <label class="tone-toggle"><input id="toggle-pinyin" type="checkbox" role="switch" checked /><span>Pinyin</span></label>
+            <label class="tone-toggle"><input id="toggle-translation" type="checkbox" role="switch" /><span>Tradução</span></label>
+          </div>
+          <div class="lesson-grid" id="lesson-grid" role="group" aria-label="Lições"></div>
+        </div>
+        <div class="texts-list" id="texts-list"><div class="lesson-view" id="lesson-view" aria-live="polite"></div></div>
+      </section>
+    </main>
+    <footer><div class="shell footer-inner"><p>Vocabulário HSK 1 em português do Brasil.</p><a href="#conteudo">Voltar ao topo ↑</a></div></footer>
+    <script src="data.js"></script>
+    <script src="textos-data.js"></script>
+    <script src="textos.js"></script>
+  </body>
+</html>
