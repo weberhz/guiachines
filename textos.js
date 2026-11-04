@@ -27,17 +27,15 @@
     let start = 0;
     return ends.map((end) => { const piece = word.slice(start, end); start = end; return piece; });
   };
-  // Pinyin sobre os caracteres sem alargar o texto: o <rt> fica posicionado sobre a palavra e a fonte dele é
-  // reduzida só se a sílaba for mais larga que os caracteres (--n = nº de caracteres, --k = largura estimada do pinyin em em).
-  const pyWidth = (annotation) => [...annotation].reduce((sum, c) => sum + (c === " " ? 0.28 : 0.55), 0);
-  const ruby = (base, annotation) => `<ruby class="rb" style="--n:${[...base].length};--k:${pyWidth(annotation).toFixed(2)}">${escape(base)}<rt>${escape(annotation)}</rt></ruby>`;
+  // Pinyin sobre os caracteres sem alargar o texto: o .rt fica posicionado sobre a palavra, sempre no mesmo tamanho de fonte.
+  const ruby = (base, annotation) => `<span class="rb">${escape(base)}<span class="rt">${escape(annotation)}</span></span>`;
   // Pontuação que segue uma palavra com pinyin fica colada a ela (não vai para o começo da linha seguinte).
   const isClosingPunct = (html) => /^[^\s\p{L}\p{N}]+$/u.test(html.replace(/&[#a-z0-9]+;/gi, ".")) && !/^[“‘（(《「『]/.test(html);
   const glue = (parts) => {
     const items = [];
     for (const part of parts) {
       const last = items[items.length - 1];
-      if (last && last.head.startsWith("<ruby") && isClosingPunct(part)) last.tail.push(part);
+      if (last && last.head.startsWith('<span class="rb"') && isClosingPunct(part)) last.tail.push(part);
       else items.push({ head: part, tail: [] });
     }
     return items.map((i) => (i.tail.length ? `<span class="rbw">${i.head}${i.tail.join("")}</span>` : i.head)).join("");
