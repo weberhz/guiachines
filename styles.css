@@ -286,6 +286,7 @@ tbody tr:not(.example-row) td:nth-child(6){grid-area:btn;justify-self:end}
 .dlg-pinyin,.dlg-zh,.dlg-pt,.scene-zh,.scene-pt{white-space:pre-line}
 .rb{display:inline-block;position:relative;margin:8px 1px 0;padding-top:calc(var(--py,12px) + 5px);white-space:nowrap;line-height:1.45;vertical-align:baseline}
 .rb>.rt{display:flex;align-items:flex-end;justify-content:center;position:absolute;top:0;left:0;right:0;height:calc(var(--py,12px) + 5px);padding-bottom:3px;box-sizing:border-box;font-family:var(--sans);font-weight:500;font-size:var(--py,12px);line-height:1;letter-spacing:0;color:var(--muted);white-space:nowrap}
+.rb{text-align:center}
 .rbw{white-space:nowrap}
 
 /* Palavras novas */
@@ -323,10 +324,10 @@ tbody tr:not(.example-row) td:nth-child(6){grid-area:btn;justify-self:end}
 .lesson-view{scroll-margin-top:120px}.lesson-head h2{font-size:24px}.lesson-pager button{padding:9px 12px;font-size:12px}
 .text-card{padding:22px 18px 24px}
 .text-dialogue{--zh:25px}
-.dlg-line{grid-template-columns:1fr;row-gap:4px;align-items:start;padding:10px 0;border-top:0}
-.dlg-line:first-child{padding-top:0}
+.dlg-line{grid-template-columns:1fr;row-gap:4px;align-items:start;padding:14px 0;border-top:1px solid var(--line)}
+.dlg-line:first-child{padding-top:0;border-top:0}
 .dlg-speaker{--zh:22px;--py:12px}
-.dlg-body{padding:2px 16px 12px;background:var(--paper-deep);border-radius:14px}
+.dlg-body{padding:0}
 .text-words ul{grid-template-columns:repeat(auto-fill,minmax(128px,1fr))}}
 @media(max-width:600px){.text-figures.is-multi{grid-template-columns:1fr}.text-figure img{max-height:300px}}
 @media(max-width:560px){.nav{display:grid;grid-template-columns:repeat(3,1fr);justify-items:center;gap:12px 8px;width:100%}}
